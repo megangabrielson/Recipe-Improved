@@ -1,15 +1,24 @@
 <template>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light row no-gutters">
     <a class="navbar-brand" href="http://cooking.megabrielson.com">mCooking</a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <div class="navbar-nav">
-        <router-link class="nav-item nav-link" to="/home">Home</router-link>
-        <router-link class="nav-item nav-link" to="/list">List</router-link>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/home">Home</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/list">List</router-link>
+        </li>
       </div>
     </div>
   </nav>
-  <router-view />
+  <p>
+    <router-view />
+  </p>
   <footer>
     <a href="https://github.com/megangabrielson/Recipes.git">Github repository FIXME!</a>
   </footer>
@@ -24,75 +33,31 @@ export default {}
 form {
   font-size: 1.2em;
   text-align: center;
-  margin: 5px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
-footer {
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  border-top: .5px solid #0e6e98;
-  padding: 10px;
-  background-color: #a8b6b9;
+input {
+  background-color: #e9ad99;
 }
 
-a {
-  color: #0a4d6b;
+input:focus {
+  outline-color: white;
+  outline-width: .25px;
 }
 
-#picture {
-  height: auto;
-  width: 70%;
-  padding: 10px;
-  margin: 20px;
-  float: right;
+button {
+  margin: 8px;
+  border-radius: 12px;
+  background-color: #605e61;
+  color: white;
+  border: none;
+  transition-duration: 0.4s;
 }
 
-#recipeName {
-  font-size: 2em;
-  padding-top: 20px;
-  padding-left: 10px;
+button:active {
+  background-color: gray;
 }
 
-#type {
-  font-size: 1.2em;
-  font-style: italic;
-  padding-left: 10px;
-}
-
-#instructions {
-  font-size: 1.3em;
-  margin-right: 15%;
-  padding-left: 10px;
-}
-
-#similar {
-  text-align: center;
-  padding: 10px;
-}
-
-#recipeSubmit {
-  background-color: #f8f9fa;
-  border-style: outset;
-}
-
-#recipeInput {
-  text-align: center !important;
-}
-
-.col-lg {
-  padding-right: 0;
-}
-
-/*
-#605e61 //dark gray
-#a8b6b9 //bluish
-#3f3d40 //dark salmon
-#e8c4aa //salmon
-#d99d90 //black
-#e0cfb6 //taupe */
 /* Menu */
 .bg-light {
   background-color: #a8b6b9 !important;
@@ -132,20 +97,26 @@ a {
 }
 
 /* General Page */
-body,
-pre {
+body {
   background-color: #e8c4aa;
   color: #605e61;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 30px;
+}
+
+a {
+  color: #605e61;
+}
+
+a:hover {
+  color: black;
 }
 
 h1 {
   font-size: 3em;
   text-align: center;
   font-family: 'Gloria Hallelujah', cursive;
-  padding: 25px 0 15px 0;
+  padding: 25px 0 25px 0;
 }
 
 h2 {
@@ -157,14 +128,161 @@ h2 {
 h3 {
   font-size: 1.1em;
   font-weight: bolder;
+  padding: 15px 0 10px 0;
 }
 
-h3 {
-  padding: 15px 0 10px 0;
+img {
+  width: 100%;
+  vertical-align: center;
+  border: #d99d90 dotted 8px;
+  padding: 5px;
+  margin: 15px;
 }
 
 .col-lg img {
   border: none;
+  padding: 0;
+}
+
+.main-page {
+  padding: 0 10px;
+}
+
+#signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+}
+
+strong {
+  font-weight: lighter;
+  font-size: 1.3em;
+}
+
+footer {
+  background-color: #605e61;
+  padding: 10px;
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+
+footer a {
+  color: #e0cfb6;
+}
+
+footer a:hover {
+  color: #e8c4aa;
+  font-size: 1.1em;
+}
+
+a:hover {
+  text-decoration-line: none;
+}
+
+.hover-pic img {
+  margin: 5px 0;
+}
+
+p {
+  text-align: center;
+  margin: 10px 10px;
+}
+
+/* Image transitions */
+.hover-pic {
+  cursor: pointer;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  width: 400px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.hover-pic .content {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  color: gray;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width: 400px;
+  height: 400px;
+  padding: 40% 5px;
+  align-items: center;
+}
+
+.hover-pic:hover .content {
+  opacity: 0.8;
+}
+
+.hover-pic .text {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+.hover-pic .text {
+  opacity: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.3s;
+}
+
+.hover-pic:hover .text {
+  opacity: 1;
+}
+
+.hover-pic {
+  margin: auto;
+}
+
+.arrow img {
+  background-size: contain;
+  height: 225px;
+  width: 100%;
+  transform: rotateZ(-40deg);
+  overflow: hidden;
+}
+
+.main {
+  margin: 0 200px;
+}
+
+.divider hr {
+  border: 3px gray solid;
+}
+
+.overview {
+  font-size: 1.2em;
+}
+
+#picture {
+  height: auto;
+  width: 90%;
+  padding: 10px;
+  margin: 20px;
+  float: right;
+  margin-top: 50px;
+}
+
+#instructions {
+  font-size: 1.3em;
+  margin-right: 15%;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#recipeName {
+  font-size: 1.2em;
+  padding-top: 20px;
+  padding-left: 10px;
+  margin-right: 15%;
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -181,6 +299,55 @@ h3 {
   #instructions {
     margin-right: 0;
     padding: 0 40px;
+    text-align: left;
   }
+}
+
+/*
+#605e61 //dark gray
+#a8b6b9 //bluish
+#3f3d40 //dark salmon
+#e8c4aa //salmon
+#d99d90 //black
+#e0cfb6 //taupe */
+
+#type {
+  font-size: 1.2em;
+  font-style: italic;
+  padding-left: 10px;
+  margin-top: -25px;
+}
+
+#similar {
+  text-align: center;
+  padding: 10px;
+}
+
+#recipeSubmit {
+  background-color: #f8f9fa;
+  border-style: outset;
+}
+
+#recipeInput {
+  text-align: center !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #3f3d40 !important;
+}
+
+
+.product {
+  display: grid;
+  padding: 20px 40px;
+  margin: 20px;
+  border: #a8b6b9 solid 1.5px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: content-box;
 }
 </style>
