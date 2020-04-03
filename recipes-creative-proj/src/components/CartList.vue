@@ -1,6 +1,7 @@
 <template>
 <div class="products">
   <div class="product" v-for="recipe in recipes" :key="recipe.idMeal">
+    <img class="thumb" :src="recipe.strMealThumb" alt="recipe photo">
     <router-link :to="'recipe/'+ recipe.idMeal">{{recipe.strMeal}}</router-link>
     <button class="auto" v-on:click="removeFromList(recipe)">Remove from List</button>
   </div>

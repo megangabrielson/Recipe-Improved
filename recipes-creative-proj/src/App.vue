@@ -20,7 +20,7 @@
     <router-view />
   </p>
   <footer>
-    <a href="https://github.com/megangabrielson/Recipes.git">Github repository FIXME!</a>
+    <a href="https://github.com/megangabrielson/Recipe-Improved">Github Repository</a>
   </footer>
 </body>
 </template>
@@ -56,6 +56,13 @@ button {
 
 button:active {
   background-color: gray;
+}
+
+textarea {
+  width: 100%;
+  height: 600px;
+  resize: none;
+  background-color: silver;
 }
 
 /* Menu */
@@ -142,6 +149,12 @@ img {
 .col-lg img {
   border: none;
   padding: 0;
+}
+
+.product img {
+  width: 200px;
+  height: 200px;
+  border: none;
 }
 
 .main-page {
@@ -339,8 +352,8 @@ p {
 
 .product {
   display: grid;
-  padding: 20px 40px;
-  margin: 20px;
+  padding: 5px 10px 20px 10px;
+  margin: 40px;
   border: #a8b6b9 solid 1.5px;
 }
 

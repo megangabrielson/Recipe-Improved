@@ -4,15 +4,14 @@
     <div class="col-lg">
       <img id="picture" :src="recipe.strMealThumb" alt="recipe photo">
       {{recipe.strArea}} {{recipe.strCategory}} Dish
-      <br>
-      <button class="auto" v-on:click="edit()">Edit Recipe</button>
-      <button class="auto" v-on:click="addToList(recipe)">Add to List</button>
+      <br><br>
     </div>
     <div class="col-lg">
-      <h1>
-        <div id="recipeName">{{recipe.strMeal}}</div>
-      </h1>
-      <div id="instructions">{{recipe.strInstructions}}</div>
+      <div id="recipeName"> You're Editing ... {{recipe.strMeal}}</div>
+      <br><br>
+      <form v-on:submit.prevent="changeRecipe()"><input v-model="changedName">
+        <textarea v-model="changedInstructions"></textarea> <br> <button type="submit">Save</button>
+      </form>
     </div>
   </div>
 </div>
@@ -21,28 +20,31 @@
 
 <script>
 export default {
-  name: 'Recipe',
+  name: 'Edit',
   data() {
     return {
       recipe: {},
+      changedName: '',
+      changedInstructions: '',
     }
   },
   methods: {
-    addToList(recipe) {
-      this.$root.$data.list.push(recipe);
-    },
-    edit() {
+    changeRecipe() {
+      this.recipe.strMeal = this.changedName;
+      this.recipe.strInstructions = this.changedInstructions;
       this.$router.push({
-        name: 'Edit',
+        name: 'Recipe',
         params: {
           id: this.recipe.idMeal,
         }
       })
-    }
+    },
   },
   created() { //special function that gets called when page is created
     console.log(this.$route.params.id);
     this.recipe = this.$root.$data.recipes.find(recipe => recipe.idMeal === (this.$route.params.id));
+    this.changedName = this.recipe.strMeal;
+    this.changedInstructions = this.recipe.strInstructions;
   },
 }
 </script>
