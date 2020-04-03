@@ -41,7 +41,6 @@ export default {
     }
   },
   created() { //special function that gets called when page is created
-    console.log(this.$route.params.id);
     this.recipe = this.$root.$data.recipes.find(recipe => recipe.idMeal === (this.$route.params.id));
   },
 }

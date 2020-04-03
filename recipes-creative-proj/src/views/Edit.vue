@@ -7,8 +7,7 @@
       <br><br>
     </div>
     <div class="col-lg">
-      <div id="recipeName"> You're Editing ... {{recipe.strMeal}}</div>
-      <br><br>
+      <div><h1>You're Editing ... {{recipe.strMeal}}</h1></div>
       <form v-on:submit.prevent="changeRecipe()"><input v-model="changedName">
         <textarea v-model="changedInstructions"></textarea> <br> <button type="submit">Save</button>
       </form>
@@ -41,7 +40,6 @@ export default {
     },
   },
   created() { //special function that gets called when page is created
-    console.log(this.$route.params.id);
     this.recipe = this.$root.$data.recipes.find(recipe => recipe.idMeal === (this.$route.params.id));
     this.changedName = this.recipe.strMeal;
     this.changedInstructions = this.recipe.strInstructions;
