@@ -8,7 +8,7 @@ import Edit from '../views/Edit.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home
   },
