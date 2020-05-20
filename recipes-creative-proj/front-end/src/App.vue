@@ -36,6 +36,10 @@ form {
   margin: 10px 0 10px 0;
 }
 
+form p {
+  background-color: #e8c4aa !important;
+}
+
 input {
   background-color: #e9ad99;
 }
@@ -58,9 +62,16 @@ button:active {
   background-color: gray;
 }
 
-textarea {
+#editInstructions {
   width: 100%;
-  height: 600px;
+  height: 400px;
+  resize: none;
+  background-color: silver;
+}
+
+#editIngredients {
+  width: 100%;
+  height: 200px;
   resize: none;
   background-color: silver;
 }
@@ -283,11 +294,20 @@ p {
   margin-top: 50px;
 }
 
-#instructions {
+#instructions p {
   font-size: 1.3em;
   margin-right: 15%;
   padding-left: 10px;
   text-align: left;
+}
+
+#ingredients p {
+  font-size: 1.3em;
+  margin-right: 15%;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  text-align: left !important;
+  font-style: italic;
 }
 
 #recipeName {

@@ -1,17 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import mock from './mock-data.js'
 
 Vue.config.productionTip = false
 
 let data = {
-  recipes: mock,
-  list: [],
+  user: null
 }
 
 new Vue({
-  router,
   data,
+  router,
   render: h => h(App)
 }).$mount('#app')
