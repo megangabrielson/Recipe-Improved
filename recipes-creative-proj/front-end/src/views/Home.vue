@@ -10,7 +10,7 @@
     </div>
   </div>
   <hr>
-  <ItemList :recipe="shownRecipes" />
+  <ItemList :recipes="shownRecipes" />
 </div>
 </template>
 

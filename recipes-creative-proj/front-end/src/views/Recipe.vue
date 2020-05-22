@@ -6,7 +6,7 @@
       {{recipe.area}} {{recipe.category}} Dish
       <br>
       <button class="auto" v-on:click="edit()">Edit Recipe</button>
-      <button v-show="loggedIn" class="auto" v-on:click="addToList(recipe)">Add to List FIXME</button>
+      <button v-show="loggedIn" class="auto" v-on:click="addToList(recipe)">Add to List</button>
     </div>
     <div class="col-lg">
       <h1>
@@ -32,8 +32,17 @@ export default {
     }
   },
   methods: {
-    addToList(recipe) {
-      this.$root.$data.list.push(recipe);
+    async addToList(recipe) {
+      try {
+        await axios.put("/api/user/recipes/" + recipe._id, {
+          username: this.$root.$data.user.data.user.username,
+          remove: false
+        });
+        this.$root.$data.user.data.user.recipeList.push(recipe);
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
     },
     edit() {
       this.$router.push({

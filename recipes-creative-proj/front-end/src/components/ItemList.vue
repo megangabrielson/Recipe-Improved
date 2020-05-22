@@ -12,39 +12,34 @@
 import axios from 'axios';
 export default {
   name: 'ItemList',
-  data() {
-    return {
-      recipes: [],
-      loggedIn: false,
-    }
+  props: {
+    recipes: Array,
   },
-  created() {
-    this.getRecipes();
-    if (this.$root.$data.user !== null) {
-      this.loggedIn = true;
-    }
+  data() {
+    return {}
   },
   methods: {
-    async getRecipes() {
-      try {
-        let response = await axios.get("/api/");
-        this.recipes = response.data;
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     async addToList(recipe) {
       try {
         await axios.put("/api/user/recipes/" + recipe._id, {
           username: this.$root.$data.user.data.user.username,
           remove: false
         });
+        this.$root.$data.user.data.user.recipeList.push(recipe);
         return true;
       } catch (error) {
         console.log(error);
       }
     },
-  }
+  },
+  computed: {
+    loggedIn() {
+      if (this.$root.$data.user !== null) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 }
 </script>

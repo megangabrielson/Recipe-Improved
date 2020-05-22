@@ -18,28 +18,27 @@ import axios from 'axios';
 export default {
   name: 'CartList',
   data() {
-    return {
-      yourList: Array,
-    }
+    return {}
   },
-  created() {
-    this.yourList = this.$root.$data.user.data.user.recipeList
-  },
+  created() {},
   methods: {
     async removeFromList(recipe) {
       try {
-        console.log(this.$root.$data.user.data.user.recipeList);
-        console.log(recipe._id);
         await axios.put("/api/user/recipes/" + recipe._id, {
           username: this.$root.$data.user.data.user.username,
           remove: true
         });
-
+        this.$root.$data.user.data.user.recipeList = this.$root.$data.user.data.user.recipeList.filter(item => recipe != item);
         return true;
       } catch (error) {
         console.log(error);
       }
     },
+  },
+  computed: {
+    yourList() {
+      return this.$root.$data.user.data.user.recipeList;
+    }
   }
 }
 </script>

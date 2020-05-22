@@ -95,10 +95,12 @@ app.put('/api/user/recipes/:id', async (req, res) => {
     });
 
     //adding a recipe
-    if (req.body.remove === false) {
+    if (req.body.remove == false) {
       user.recipeList.push(recipe);
     } else { //removing a recipe
-      user.recipeList = user.recipeList.filter(item => recipe._id !== item);
+      console.log(req.params.id)
+      user.recipeList = user.recipeList.filter(item => req.params.id != item);
+      console.log(user.recipeList);
     }
     await user.save();
     res.sendStatus(200);
