@@ -35,7 +35,6 @@ export default {
         this.recipeList = response.data;
         return true;
       } catch (error) {
-        console.log(error);
       }
     },
   },

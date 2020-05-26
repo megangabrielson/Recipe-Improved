@@ -41,7 +41,6 @@ export default {
         this.$root.$data.user.data.user.recipeList.push(recipe);
         return true;
       } catch (error) {
-        console.log(error);
       }
     },
     edit() {
@@ -58,7 +57,6 @@ export default {
         this.recipe = response.data;
         return true;
       } catch (error) {
-        console.log(error);
       }
     },
   },

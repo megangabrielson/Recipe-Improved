@@ -18,7 +18,9 @@ import axios from 'axios';
 export default {
   name: 'CartList',
   data() {
-    return {}
+    return {
+      error: '',
+    }
   },
   created() {},
   methods: {
@@ -31,7 +33,7 @@ export default {
         this.$root.$data.user.data.user.recipeList = this.$root.$data.user.data.user.recipeList.filter(item => recipe != item);
         return true;
       } catch (error) {
-        console.log(error);
+      	  this.error = error;
       }
     },
   },

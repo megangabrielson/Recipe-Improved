@@ -60,7 +60,6 @@ export default {
         this.loggedIn = true;
         return true;
       } catch (error) {
-        console.log(error);
       }
     },
     async createAccount() {

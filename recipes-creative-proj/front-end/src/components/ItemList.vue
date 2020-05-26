@@ -28,7 +28,6 @@ export default {
         this.$root.$data.user.data.user.recipeList.push(recipe);
         return true;
       } catch (error) {
-        console.log(error);
       }
     },
   },

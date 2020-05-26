@@ -153,10 +153,10 @@ app.post('/api/user', async (req, res) => {
   }
 });
 
-// Delete a user -- back end use only
+// Delete a recipe -- back end use only
 app.delete('/api/:id', async (req, res) => {
   try {
-    await User.deleteOne({
+    await Recipe.deleteOne({
       _id: req.params.id
     });
     res.sendStatus(200);
@@ -177,4 +177,4 @@ mongoose.connect('mongodb://localhost:27017/yourRecipes', {
 });
 
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(3003, () => console.log('Server listening on port 3003!'));

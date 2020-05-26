@@ -48,7 +48,6 @@ export default {
         })
         return true;
       } catch (error) {
-        console.log(error);
       }
     },
     async getRecipe() {
@@ -60,7 +59,6 @@ export default {
         this.changedIngredients = this.recipe.ingredients;
         return true;
       } catch (error) {
-        console.log(error);
       }
     },
   },
